@@ -1,0 +1,17 @@
+### Chorus dev
+# libc for bundle
+# export DYLD_LIBRARY_PATH=/usr/lib
+# export DYLD_FALLBACK_LIBRARY_PATH=/usr/lib
+export CHORUS_HOME=<%= scope.lookupvar "boxen::config::srcdir" %>/chorus
+export PATH=$CHORUS_HOME/postgres/bin:$PATH
+export JRUBY_OPTS="-X+O --client -J-Xmx2048m -J-Xms512m -J-Xmn128m -J-XX:MaxPermSize=128m -Xcext.enabled=true -J-Djava.library.path=$CHORUS_HOME/vendor/hadoop/lib/"
+
+export GPDB_HOST=local-greenplum
+export HADOOP_HOST=alpine-hadoop
+
+alias gpp="git pull --rebase && git push && bundle | grep -v 'Using' && rage"
+alias rage='bundle exec rake db:migrate db:test:prepare && say rawr'
+alias jaz='phantomjs <%= scope.lookupvar "boxen::config::srcdir" %>/chorus/lib/tasks/../../spec/run-phantom-jasmine.js 8888'
+alias chorus_control='RAILS_ENV=development $CHORUS_HOME/packaging/chorus_control.sh'
+alias zen='chorus_control stop && chorus_control start postgres && rake db:drop db:create db:migrate db:seed db:seed_development db:test:prepare && chorus_control start'
+alias local_jobs=$'psql -h localhost -p 8543 chorus_rails_development -c "select * from queue_classic_jobs"'

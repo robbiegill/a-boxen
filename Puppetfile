@@ -56,3 +56,20 @@ github "xquartz",     "1.1.1"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
+
+github "bash",       "1.1.0"
+github "chrome",     "1.1.0"
+github "firefox",    "1.1.8"
+github "wget",       "1.0.0"
+github "sublime_text_2", "1.1.2"
+github "iterm2",     "1.0.7"
+github "vagrant",    "3.0.6"
+github "virtualbox", "1.0.10"
+github "vlc",        "1.0.5"
+github "rubymine",   "1.1.0"
+github "osx",        "2.2.2"
+
+github "shiftit",            "0.0.3", :repo => "robbiegill/puppet-shiftit"
+github "font",               "1.0.3", :repo => "robbiegill/puppet-font"
+github "maven",              "1.1.2", :repo => "robbiegill/puppet-maven"
+
