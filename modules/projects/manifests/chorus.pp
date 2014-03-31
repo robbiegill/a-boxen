@@ -5,6 +5,8 @@ class projects::chorus {
   include virtualbox
   include vagrant
   include helpers::bash_fragments_chorus
+  include maven
+  include foreman
 
   boxen::project { 'chorus':
     source => 'Chorus/chorus'
