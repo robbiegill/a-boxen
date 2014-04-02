@@ -13,6 +13,8 @@ class people::robbiegill {
   }
 
   include chrome::canary
+  include firefox::aurora
+
   include vlc
 
   class { 'osx::dock::position':
